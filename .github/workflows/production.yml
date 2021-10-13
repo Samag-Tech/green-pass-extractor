@@ -1,0 +1,22 @@
+name: Green Pass Extractor
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with: 
+        node-version: '13.x'
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env: 
+        SSH_PRIVATE_KEY: ${{ secrets.PROD_SSH_KEY }}
+        ARGS: '-rltgoDzvO --exclude=".[!.]*"'
+        SOURCE: "/"
+        REMOTE_HOST: ${{ secrets.PROD_HOST }}
+        REMOTE_USER: ${{ secrets.PROD_USER }}
+        TARGET: ${{ secrets.PROD_TARGET }}
