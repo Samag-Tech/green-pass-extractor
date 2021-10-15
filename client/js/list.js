@@ -1,10 +1,9 @@
-
-
 $(document).ready(function(){
 
     $('#show').on('click', function(e) {
         e.preventDefault();
 
+        /* creazione lista dai nomi inseriti dall'utente */
         let list = [];
         $.each($('#data').val().split(/\n/), function(i, line){
             if(list){
@@ -12,6 +11,7 @@ $(document).ready(function(){
             }
         });
 
+        /* chiamata ajax per scaricare la lista */
         $.ajax({
             type: "POST",
             data: JSON.stringify(list),
@@ -20,21 +20,23 @@ $(document).ready(function(){
             encode: true,
             contentType: 'application/json',
             success: function (response) {
-                console.log(response);
+
+                /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
+
 
                     if (response.length > 0) {
 
                         $('#list').html(generateList(response));
 
                     }else{
-
+                        /* mostra un errore in caso di dati mancanti */
                         $('#data').addClass('alert-danger');
                     }
 
                 },
                 error: function (err) {
-                    console.log("AJAX error: " + err);
+                    alert("AJAX error: " + err);
                 }
         });
     });
@@ -51,7 +53,7 @@ function generateList(elements) {
         let list =
 
         `
-        <li class="list-group-item">${element}</li>
+        <li class="list-group-item text-center">${element}</li>
         `;
 
         rows.push(list);
