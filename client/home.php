@@ -9,7 +9,7 @@ require_once('partials/header.php');
 <div class="flex">
     <div class="inputs ">
         <form method="POST" enctype="multipart/form-data">
-            <div class="form-group col-4">
+            <div class="form-group">
                 <label for="data"><h2 class="label">inserisci lista nomi</h2></label>
                 <textarea type="text" class="form-control" id="data" rows="12"></textarea>
             </div>
@@ -29,9 +29,13 @@ require_once('partials/header.php');
 
     </div> -->
 
-    <div class="inputs data" style="border: 1px solid lightgray;">
-        <ul class="list-group" id="list">
-        </ul>
+    <div>
+        <h2>lista:</h2>
+        <div class="inputs data" style="border: 1px solid lightgray;">
+
+            <ul class="list-group" id="list">
+            </ul>
+        </div>
     </div>
 </div>
 

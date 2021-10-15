@@ -35,6 +35,9 @@ $(document).ready(function(){
                     $('#data').addClass('alert-danger');
                 }
             },
+            error: function (err) {
+                console.log("AJAX error: " + err);
+            }
         });
     });
 

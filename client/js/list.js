@@ -23,7 +23,7 @@ $(document).ready(function(){
                 console.log(response);
                 $('#data').removeClass('alert-danger');
 
-                    if (response) {
+                    if (response.length > 0) {
 
                         $('#list').html(generateList(response));
 
@@ -34,14 +34,14 @@ $(document).ready(function(){
 
                 },
                 error: function (err) {
-                    console.log("AJAX error in request: ");
+                    console.log("AJAX error: " + err);
                 }
         });
     });
 
 });
 
-
+/* funzione per generare dinamicamente la lista ricevuta nell'html da mostrare all'utente */
 function generateList(elements) {
 
     let rows = [];
