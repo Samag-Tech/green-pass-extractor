@@ -16,7 +16,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             data: JSON.stringify(list),
-            url: '/server/Api/extractor.php',
+            url: '/server/Api/generator.php',
             success: function (blob) {
                     if (blob !== '') {
                         $('#data').removeClass('alert-danger');

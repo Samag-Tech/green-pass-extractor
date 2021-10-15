@@ -8,21 +8,21 @@ class DataController {
     }
 
     public function getRandom($dataset){
-        $baseData = count($dataset) -1;
+        $baseData = count(array_filter($dataset)) - 1;
         $arrayRand = [];
 
         $data25 = $baseData / 4;
 
-        for ($i=1; $i <= ceil($data25); $i++) {
+        for ($i=0; $i < ceil($data25); $i++) {
             $item = mt_rand(0, $baseData);
-
-            if(!in_array($item,$arrayRand)){
+            if (!in_array($dataset[$item] , $arrayRand)) {
                 array_push($arrayRand ,$dataset[$item]);
             }
             else{
-                $i - 1;
+                $i--;
             }
         }
+
         return $arrayRand;
     }
 

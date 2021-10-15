@@ -2,13 +2,14 @@
 
     $data = json_decode(file_get_contents('php://input'),true);
 
-if ($data[0] != '') {
+if ($data != '') {
 
     $controller = new DataController();
-    $response = $controller->create($data);
+    $response = $controller->getRandom($data);
 
+    echo json_encode($response);
 }else{
-    die;
+    return json_encode(false);
 }
 
 

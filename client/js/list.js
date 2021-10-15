@@ -16,15 +16,16 @@ $(document).ready(function(){
             type: "POST",
             data: JSON.stringify(list),
             url: '/server/Api/extractor.php',
-
-            success: function (blob) {
+            dataType: "json",
+            encode: true,
+            contentType: 'application/json',
+            success: function (response) {
+                console.log(response);
                 $('#data').removeClass('alert-danger');
 
-                    if (blob) {
-                        let split = [];
-                        split = blob.split('\n');
+                    if (response) {
 
-                        $('#list').html(generateList(split));
+                        $('#list').html(generateList(response));
 
                     }else{
 
@@ -32,6 +33,9 @@ $(document).ready(function(){
                     }
 
                 },
+                error: function (err) {
+                    console.log("AJAX error in request: ");
+                }
         });
     });
 
