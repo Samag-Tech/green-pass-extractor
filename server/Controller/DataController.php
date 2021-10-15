@@ -3,20 +3,6 @@ class DataController {
 
 /**
 *
-*  restituisce il file csv all'utente
-*  @param array $data lista nomi
-*  @return csv;
-*
-*/
-    public function create($data){
-
-        $arrayRand = $this->getRandom($data);
-        return $this->createCsv($arrayRand);
-
-    }
-
-/**
-*
 *  restituisce una lista randomica delle dimensioni pari al 25% di quella inserita
 *  @param array $data lista nomi
 *  @return array;

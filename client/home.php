@@ -1,4 +1,5 @@
 <?php
+
 require_once('partials/header.php');
 ?>
 <!-- logo strategy -->
@@ -28,7 +29,7 @@ require_once('partials/header.php');
             </div>
         </div>
         <button class="btn btn-info center-items" id="show">Estrai</button>
-        <button class="btn btn-primary center-items" id="download">Scarica csv</button>
+        <button class="btn btn-primary center-items" id="download" disabled>Scarica csv</button>
     </div>
 
     <!-- risultato dell'operazione mostrato a schermo -->
