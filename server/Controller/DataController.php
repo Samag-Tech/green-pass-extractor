@@ -3,28 +3,24 @@ class DataController {
 
 
     public function create($data){
-        $dataset = $data['dataset'];
-        $purifiedData = explode( ' ' ,$dataset);
-
-        $arrayRand = $this->getRandom($purifiedData);
-
+        $arrayRand = $this->getRandom($data);
         return $this->createCsv($arrayRand);
     }
 
     public function getRandom($dataset){
-        $baseData = count($dataset);
+        $baseData = count($dataset) -1;
+        $arrayRand = [];
+
         $data25 = $baseData / 4;
 
-        $arrayRand = [];
         for ($i=1; $i <= ceil($data25); $i++) {
-
-            $item = mt_rand(0, $baseData -1);
+            $item = mt_rand(0, $baseData);
 
             if(!in_array($item,$arrayRand)){
                 array_push($arrayRand ,$dataset[$item]);
             }
             else{
-                $i--;
+                $i - 1;
             }
         }
         return $arrayRand;
@@ -34,7 +30,15 @@ class DataController {
     public function createCsv($data){
         $out = fopen('../Download/lista.csv', 'w');
 
-        fputcsv($out, $data , "\n");
+        foreach ($data as $key => $value) {
+            if ( is_string($value)) {
+                fputcsv($out, [$value]);
+            }
+            else {
+                fputcsv($out, $value);
+            }
+        }
+
 
         $this->download($out);
         fclose($out);

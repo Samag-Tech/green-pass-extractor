@@ -4,11 +4,42 @@
     box-sizing: border-box;
 }
 
-
-.flex{
-    display: inline-block;
-    justify-content: space-around;
+#data{
+    width: 70vh;
+    height: 60vh;
 }
-.none{
-    visibility: hidden;
+.data{
+    width: 70vh;
+    height: 60vh;
+    overflow-y: scroll;
+}
+.label{
+    width: 30vh;
+    line-height: 0%;
+}
+
+.inputs{
+    display: inline-block;
+}
+.flex{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.flex-outp{
+    display: flex;
+    flex-direction: column;
+}
+.center-items{
+    margin-bottom: 50px;
+}
+.logo{
+    width: 30%;
+    height: auto;
+    margin: auto;
+}
+img{
+    height: 100%;
+    width: 100%;
 }
