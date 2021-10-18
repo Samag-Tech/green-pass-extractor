@@ -7,13 +7,13 @@
     margin-top: 50px;
 }
 #data{
-    width: 70vh;
-    height: 60vh;
+    width: 50vh;
+    height: 30vh;
     resize: none;
 }
 .data{
-    width: 70vh;
-    height: 60vh;
+    width: 50vh;
+    height: 30vh;
     overflow-y: scroll;
 }
 .label{
@@ -68,7 +68,7 @@ label{
 }
 
 @media screen and (max-width: 768px) {
-    #data{
+/*     #data{
         width: 40vh;
         height: 50vh;
     }
@@ -78,8 +78,23 @@ label{
     }
     .inputs{
         zoom: 60%;
+    } */
+    .flex{
+        flex-direction: column;
+        margin-top: 25px;
     }
 
+    .center-items{
+        margin-bottom: 25px;
+        zoom: 50%;
+    }
+
+    .home{
+        margin-top: 0;
+    }
+    .result{
+        margin-top: 10px;
+    }
 }
 @media screen and (min-width: 769px) {
     #data{

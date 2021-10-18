@@ -61,7 +61,7 @@ require_once('client/partials/header.php');
         </div>
 
         <!-- risultato dell'operazione mostrato a schermo -->
-        <div>
+        <div class="result">
             <h2>Dati estratti</h2>
             <div class="inputs data" style="border: 1px solid lightgray;">
 
