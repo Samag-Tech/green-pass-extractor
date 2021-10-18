@@ -5,6 +5,7 @@
 }
 .home{
     margin-top: 50px;
+    height: 80vh;
 }
 #data{
     width: 40vh;
@@ -32,7 +33,6 @@
     justify-content: space-around;
     align-items: center;
     justify-self: center;
-
 }
 .flex-outp{
     display: flex;
@@ -51,11 +51,11 @@ img{
     height: 100%;
     width: 100%;
 }
-h2{
+.topText{
     width: 100%;
     text-align: center;
-    font-size: 22px;
     line-height: 1.8rem;
+    display: block;
 
 }
 label{
@@ -66,19 +66,46 @@ label{
 .centerBtn{
     max-width: 100px;
 }
+footer{
+    background-color: #33445e;
+    color: white;
+    height: 15vh;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.flexFooter{
+    padding-top: 25px;
+    display: flex;
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.gitHub{
+    font-size: 22px;
+}
+.gitHub:hover{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 768px) {
-/*     #data{
-        width: 40vh;
-        height: 50vh;
-    }
-    .data{
-        width: 40vh;
-        height: 50vh;
-    }
-    .inputs{
-        zoom: 60%;
-    } */
     .flex{
         flex-direction: column;
         margin-top: 25px;
@@ -94,6 +121,10 @@ label{
     }
     .result{
         margin-top: 10px;
+    }
+
+    footer{
+        margin-top: 15vh;
     }
 }
 @media screen and (min-width: 769px) {

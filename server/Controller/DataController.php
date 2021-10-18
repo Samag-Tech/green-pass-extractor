@@ -135,6 +135,7 @@ public function purSpace($data){
 *
 */
     public function createCsv($data){
+
         $out = fopen('../Download/lista.csv', 'w');
 
         foreach ($data as $key => $value) {
@@ -148,7 +149,9 @@ public function purSpace($data){
 
 
         $this->download($out);
+
         fclose($out);
+        unlink('../Download/lista.csv');
     }
 
 /**
@@ -164,6 +167,7 @@ public function purSpace($data){
         header('Content-Disposition: attachment; filename=lista.csv');
 
         readfile("../Download/lista.csv");
+
 
     }
 }

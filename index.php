@@ -18,7 +18,7 @@ require_once('client/partials/header.php');
         <div class="inputs ">
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="data"><h2 class="label">Inserisci dati</h2></label>
+                    <label for="data"><span class="label">Inserisci dati</span></label>
                     <textarea type="text" class="form-control" id="data" rows="12"></textarea>
                 </div>
             </form>
@@ -62,7 +62,7 @@ require_once('client/partials/header.php');
 
         <!-- risultato dell'operazione mostrato a schermo -->
         <div class="result">
-            <h2>Dati estratti</h2>
+            <span class="topText">Dati estratti</span>
             <div class="inputs data" style="border: 1px solid lightgray;">
 
                 <ul class="list-group" id="list">
@@ -72,6 +72,9 @@ require_once('client/partials/header.php');
     </div>
 </section>
 
+<?php
+require_once('client/partials/footer.php');
+?>
 
 
 <?php
