@@ -10,9 +10,13 @@ class DataController {
 */
     public function getRandom($listArray){
 
+        /* array finale che verra restituito all'utente */
         $randArr = [];
+
+        /* array di numeri randomici di lunghezza 25% */
         $randList = $this->randomNum($listArray);
 
+        /* ciclo per inserire in $randArr gli elementi dell'array principale assegnando come chiave ciascuno degli elementi di $randList */
         foreach ($randList as $key => $value) {
             array_push($randArr , $listArray[$value]);
         }
@@ -31,13 +35,21 @@ class DataController {
 */
     public function randomNum($listArray){
 
+        /* variabile contenente il numero di elementi di $listArray */
         $countArray = count(array_filter($listArray));
-        $randomArray = [];
+
+        /* quantita di elementi da estrarre */
         $quantity = $countArray / 100 * 25;
+
+        /* array che verra popolato dal ciclo a seguire */
+        $randomArray = [];
+
 
         for ($i=0; $i < ceil($quantity); $i++) {
 
+            /* elemento randomico generato ad ogni ciclo */
             $index = mt_rand(0, $countArray -1);
+
 
             if (!in_array($index, $randomArray)) {
 

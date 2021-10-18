@@ -1,10 +1,12 @@
 $(document).ready(function(){
     let listValue;
-
-    /* download file csv */
-    $('#download').on('click', function () {
-        download(listValue);
-    })
+    let listTotal;
+        /* download file csv */
+        $('#download').on('click', function () {
+            if (listValue !== listTotal) {
+                download(listValue);
+            }
+        })
 
     $('#show').on('click', function(e) {
         e.preventDefault();
@@ -17,6 +19,8 @@ $(document).ready(function(){
             }
         });
 
+        listTotal = list;
+
         /* chiamata ajax per scaricare la lista */
         $.ajax({
             type: "POST",
@@ -26,7 +30,7 @@ $(document).ready(function(){
             encode: true,
             contentType: 'application/json',
             success: function (response) {
-
+                console.log(response);
 
                 /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
@@ -85,7 +89,7 @@ function download(resp) {
         data: JSON.stringify(resp),
         url: '/server/Api/generator.php',
         success: function (response) {
-
+            console.log(response);
                 if (response !== '') {
                     /* da la possibilita di ricreare la lista */
                     $('#show').prop('disabled' , false);
