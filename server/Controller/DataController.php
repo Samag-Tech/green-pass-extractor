@@ -37,12 +37,9 @@ class DataController {
     public function purifier($listArray){
 
         $purifiedArr = [];
+        $spacelessArr = $this->purSpace($listArray);
 
-        foreach ($listArray as $key => $value) {
-            $trimmedArr[] = trim($value);
-        }
-
-        foreach ($trimmedArr as $key => $value) {
+        foreach ($spacelessArr as $key => $value) {
 
             if (!empty($value)) {
                 array_push($purifiedArr , $value);
@@ -51,6 +48,45 @@ class DataController {
 
         return $purifiedArr;
     }
+
+
+/**
+*
+*  crea un file csv inserendo in ogni riga i nomi inseriti nella lista
+*  @param array $data lista di elementi
+*  @return void;
+*
+*/
+public function purSpace($data){
+
+    $spacelessArr = [];
+
+    foreach ($data as $key => $value) {
+        $trimmedval = trim($value);
+        $singleVal = explode(' ', $trimmedval);
+
+
+        if ([$singleVal]) {
+            $wordConstruct = [];
+
+            foreach ($singleVal as $key => $value) {
+                if (!empty($value)) {
+                    array_push($wordConstruct , $value);
+                }
+            }
+
+            $spacelessWord = implode(' ',$wordConstruct);
+            array_push($spacelessArr , $spacelessWord);
+
+        }else{
+            array_push($spacelessArr , $trimmedval);
+        }
+
+    }
+
+    return $spacelessArr;
+}
+
 
 /**
 *

@@ -29,6 +29,7 @@ $(document).ready(function(){
             encode: true,
             contentType: 'application/json',
             success: function (response) {
+                console.log(response);
                 /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
 
