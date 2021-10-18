@@ -1,13 +1,13 @@
 <?php
 
-require_once('partials/header.php');
+require_once('client/partials/header.php');
 ?>
 
 
 <section class="home">
     <!-- logo strategy -->
     <div class="logo">
-        <img src="public/logo-strategy.png" alt="">
+        <img src="client/public/logo-strategy.png" alt="">
     </div>
 
 
@@ -27,34 +27,34 @@ require_once('partials/header.php');
         <!-- bottoni per effettuare le varie azioni -->
         <div class="inputs flex-outp">
             <div class="quantity center-items">
-                <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group">
                     <div class="input-group-prepend">
                     <div class="input-group-text">%</div>
                     </div>
-                    <div class="form-control text-center"><strong>25</strong></div>
+                    <input type="text" class="form-control" placeholder="25" readonly >
                 </div>
             </div>
             <button class="btn btn-primary center-items" id="show">
 
-                <div class="flexBtn">
+                <div>
                     <span>
-                        Estrai
+                        <i class="fas fa-share-square"></i>
                     </span>
 
                     <span>
-                        <i class="fas fa-share-square"></i>
+                        Estrai
                     </span>
                 </div>
 
             </button>
             <button class="btn btn-success center-items" id="download" disabled>
 
-                <div class="flexBtn">
-                    <span style="margin-right: 5px;">Scarica csv </span>
-
+                <div>
                     <span>
                         <i class="fas fa-file-excel"></i>
                     </span>
+
+                    <span style="margin-left: 5px;">Scarica CSV </span>
                 </div>
 
             </button>
@@ -75,5 +75,5 @@ require_once('partials/header.php');
 
 
 <?php
-require_once('partials/script.php');
+require_once('client/partials/script.php');
 ?>

@@ -18,7 +18,7 @@
 }
 .label{
     width: 30vh;
-    line-height: 0%;
+    line-height: 1.8rem;
     margin: auto;
     font-size: 22px;
 }
@@ -37,12 +37,13 @@
 .flex-outp{
     display: flex;
     flex-direction: column;
+    max-width: 200px;
 }
 .center-items{
     margin-bottom: 50px;
 }
 .logo{
-    width: 15%;
+    width: 9%;
     height: auto;
     margin: auto;
 }
@@ -54,6 +55,7 @@ h2{
     width: 100%;
     text-align: center;
     font-size: 22px;
+    line-height: 1.8rem;
 
 }
 label{
@@ -61,9 +63,8 @@ label{
     text-align: center;
 
 }
-.flexBtn{
-    display: flex;
-    justify-content: space-around;
+.centerBtn{
+    max-width: 100px;
 }
 
 @media screen and (max-width: 768px) {
@@ -125,14 +126,14 @@ label{
 
 @media only screen and (min-width: 1325px){
     #data{
-        width: 65vh;
+        width: 80vh;
         height: 60vh;
     }
     .data{
-        width: 65vh;
+        width: 80vh;
         height: 60vh;
     }
     .inputs{
-        zoom: 100%;
+        zoom: 80%;
     }
 }
