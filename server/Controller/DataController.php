@@ -4,7 +4,7 @@ class DataController {
 /**
 *
 *  restituisce la lista dei nomi all'utente
-*  @param array $data lista nomi
+*  @param array $listArray lista nomi
 *  @return array;
 *
 */
@@ -14,11 +14,12 @@ class DataController {
         $randArr = [];
 
         /* array di numeri randomici di lunghezza 25% */
-        $randList = $this->randomNum($listArray);
+        $purifiedList = $this->purifier($listArray);
+        $randList = $this->randomNum($purifiedList);
 
         /* ciclo per inserire in $randArr gli elementi dell'array principale assegnando come chiave ciascuno degli elementi di $randList */
         foreach ($randList as $key => $value) {
-            array_push($randArr , $listArray[$value]);
+            array_push($randArr , $purifiedList[$value]);
         }
 
         return $randArr;
@@ -28,8 +29,28 @@ class DataController {
 
 /**
 *
+*  permette di eliminare tutti gli spazi vuoti dalla lista inserita dall'utente
+*  @param array $listArray lista nomi
+*  @return array;
+*
+*/
+    public function purifier($listArray){
+
+        $purifiedArr = [];
+
+        foreach ($listArray as $key => $value) {
+            if (!empty($value)) {
+                array_push($purifiedArr , $value);
+            }
+        }
+
+        return $purifiedArr;
+    }
+
+/**
+*
 *  restituisce una lista randomica delle dimensioni pari al 25% di quella inserita
-*  @param array $data lista nomi
+*  @param array $listArray lista nomi
 *  @return array;
 *
 */
@@ -59,7 +80,6 @@ class DataController {
                 $i--;
             }
         }
-
         return $randomArray;
     }
 

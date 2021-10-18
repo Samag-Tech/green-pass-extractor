@@ -11,11 +11,13 @@ $(document).ready(function(){
 
         /* creazione lista dai nomi inseriti dall'utente */
         let list = [];
+
         $.each($('#data').val().split(/\n/), function(i, line){
-            if(list){
+            if(line !== ''){
                 list.push(line);
             }
         });
+        console.log(list);
 
         listTotal = list;
 
@@ -28,12 +30,10 @@ $(document).ready(function(){
             encode: true,
             contentType: 'application/json',
             success: function (response) {
-                console.log(response);
-
                 /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
 
-
+                console.log(response);
                     if (response.length > 0) {
                         /* disabilita il pulsante per estrarre la lista */
                         $('#show').prop('disabled' , true);
