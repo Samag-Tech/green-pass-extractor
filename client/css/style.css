@@ -7,12 +7,12 @@
     margin-top: 50px;
 }
 #data{
-    width: 50vh;
+    width: 40vh;
     height: 30vh;
     resize: none;
 }
 .data{
-    width: 50vh;
+    width: 40vh;
     height: 30vh;
     overflow-y: scroll;
 }
