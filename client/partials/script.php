@@ -3,6 +3,5 @@
 
 <script src="/client/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<script src="/client/js/download.js"></script>
 <script src="/client/js/list.js"></script>
 </html>
