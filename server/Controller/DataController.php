@@ -50,7 +50,7 @@ class DataController {
             /* elemento randomico generato ad ogni ciclo */
             $index = mt_rand(0, $countArray -1);
 
-
+            /* inserisce l'elemento nell'array solo se non esiste gia */
             if (!in_array($index, $randomArray)) {
 
                 $randomArray[] = $index;
@@ -59,8 +59,11 @@ class DataController {
                 $i--;
             }
         }
+
         return $randomArray;
     }
+
+
 /**
 *
 *  crea un file csv inserendo in ogni riga i nomi inseriti nella lista

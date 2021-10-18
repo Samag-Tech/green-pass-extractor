@@ -46,7 +46,10 @@ $(document).ready(function(){
 
                     }else{
                         /* mostra un errore in caso di dati mancanti */
+                        response = '';
+                        $('#list').html(generateList(response));
                         $('#data').addClass('alert-danger');
+
                     }
 
                 },
@@ -62,57 +65,60 @@ function generateList(elements) {
 
     let rows = [];
 
-    elements.forEach(element => {
+    if (elements !== '') {
+        elements.forEach(element => {
 
-        let list =
+            let list =
 
-        `
-        <li class="list-group-item text-center">${element}</li>
-        `;
+            `
+            <li class="list-group-item text-center">${element}</li>
+            `;
+
+            rows.push(list);
+        });
+    }else{
+
+        let list = '';
 
         rows.push(list);
-    });
+
+    }
 
 
     return rows;
 }
 
 
-
-
 function download(resp) {
-    for (let index = 0; index < 1; index++) {
-        $.ajax({
-            type: "POST",
-            data: JSON.stringify(resp),
-            url: '/server/Api/generator.php',
-            success: function (response) {
-                console.log(response);
-                    if (response !== '') {
-                        /* da la possibilita di ricreare la lista */
-                        $('#show').prop('disabled' , false);
-                        /* download del file csv */
-                        $('#data').removeClass('alert-danger');
-                        var binaryData = [];
-                        binaryData.push(response);
-                        const url = window.URL.createObjectURL(new Blob(binaryData, {type: "text/csv"}))
-                        const a = document.createElement('a');
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(resp),
+        url: '/server/Api/generator.php',
+        success: function (response) {
+            console.log(response);
+                if (response !== '') {
+                    /* da la possibilita di ricreare la lista */
+                    $('#show').prop('disabled' , false);
+                    /* download del file csv */
+                    $('#data').removeClass('alert-danger');
+                    var binaryData = [];
+                    binaryData.push(response);
+                    const url = window.URL.createObjectURL(new Blob(binaryData, {type: "text/csv"}))
+                    const a = document.createElement('a');
 
-                        a.style.display = 'none';
-                        a.href = url;
-                        a.download = 'lista.csv';
-                        document.body.appendChild(a);
-                        a.click();
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'lista.csv';
+                    document.body.appendChild(a);
+                    a.click();
 
-                }else{
-                    /* mostra all'utente un errore nel caso in cui la textarea e vuota */
-                    $('#data').addClass('alert-danger');
-                }
-            },
-            error: function (err) {
-                alert("AJAX error: " + err);
+            }else{
+                /* mostra all'utente un errore nel caso in cui la textarea e vuota */
+                $('#data').addClass('alert-danger');
             }
-        });
-
-    }
+        },
+        error: function (err) {
+            alert("AJAX error: " + err);
+        }
+    });
 }
