@@ -1,4 +1,10 @@
 $(document).ready(function(){
+    let listValue;
+
+    /* download file csv */
+    $('#download').on('click', function () {
+        download(listValue);
+    })
 
     $('#show').on('click', function(e) {
         e.preventDefault();
@@ -21,6 +27,7 @@ $(document).ready(function(){
             contentType: 'application/json',
             success: function (response) {
 
+
                 /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
 
@@ -33,10 +40,7 @@ $(document).ready(function(){
                         /* abilita il pulsante di download */
                         $('#download').prop('disabled' , false);
 
-                        /* download file csv */
-                        $('#download').on('click', function () {
-                            download(response);
-                        })
+                        listValue = response;
 
                     }else{
                         /* mostra un errore in caso di dati mancanti */
@@ -71,11 +75,6 @@ function generateList(elements) {
 
     return rows;
 }
-
-function name(params) {
-
-}
-
 
 
 

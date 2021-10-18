@@ -3,12 +3,33 @@ class DataController {
 
 /**
 *
-*  restituisce una lista randomica delle dimensioni pari al 25% di quella inserita
+*  restituisce la lista dei nomi all'utente
 *  @param array $data lista nomi
 *  @return array;
 *
 */
     public function getRandom($listArray){
+
+        $randArr = [];
+        $randList = $this->randomNum($listArray);
+
+        foreach ($randList as $key => $value) {
+            array_push($randArr , $listArray[$value]);
+        }
+
+        return $randArr;
+    }
+
+
+
+/**
+*
+*  restituisce una lista randomica delle dimensioni pari al 25% di quella inserita
+*  @param array $data lista nomi
+*  @return array;
+*
+*/
+    public function randomNum($listArray){
 
         $countArray = count(array_filter($listArray));
         $randomArray = [];
@@ -18,18 +39,16 @@ class DataController {
 
             $index = mt_rand(0, $countArray -1);
 
-            if (!in_array($listArray[$index] , $randomArray)) {
+            if (!in_array($index, $randomArray)) {
 
-                array_push($randomArray ,$listArray[$index]);
+                $randomArray[] = $index;
             }
             else{
                 $i--;
             }
         }
-
         return $randomArray;
     }
-
 /**
 *
 *  crea un file csv inserendo in ogni riga i nomi inseriti nella lista
@@ -70,3 +89,4 @@ class DataController {
 
     }
 }
+
