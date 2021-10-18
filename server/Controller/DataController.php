@@ -36,7 +36,9 @@ class DataController {
 */
     public function purifier($listArray){
 
+        /* array di elementi senza spazi */
         $purifiedArr = [];
+
         $spacelessArr = $this->purSpace($listArray);
 
         foreach ($spacelessArr as $key => $value) {
@@ -52,9 +54,9 @@ class DataController {
 
 /**
 *
-*  crea un file csv inserendo in ogni riga i nomi inseriti nella lista
+*  elimina tutti gli spazi dalla lista e nel caso in cui ci sia piu di uno spazio tra due parole lo riduce a uno
 *  @param array $data lista di elementi
-*  @return void;
+*  @return array;
 *
 */
 public function purSpace($data){

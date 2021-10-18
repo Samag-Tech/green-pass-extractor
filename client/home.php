@@ -34,8 +34,30 @@ require_once('partials/header.php');
                     <div class="form-control text-center"><strong>25</strong></div>
                 </div>
             </div>
-            <button class="btn btn-primary center-items" id="show">Estrai</button>
-            <button class="btn btn-success center-items" id="download" disabled>Scarica csv</button>
+            <button class="btn btn-primary center-items" id="show">
+
+                <div class="flexBtn">
+                    <span>
+                        Estrai
+                    </span>
+
+                    <span>
+                        <i class="fas fa-share-square"></i>
+                    </span>
+                </div>
+
+            </button>
+            <button class="btn btn-success center-items" id="download" disabled>
+
+                <div class="flexBtn">
+                    <span style="margin-right: 5px;">Scarica csv </span>
+
+                    <span>
+                        <i class="fas fa-file-excel"></i>
+                    </span>
+                </div>
+
+            </button>
         </div>
 
         <!-- risultato dell'operazione mostrato a schermo -->

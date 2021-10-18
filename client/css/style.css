@@ -9,6 +9,7 @@
 #data{
     width: 70vh;
     height: 60vh;
+    resize: none;
 }
 .data{
     width: 70vh;
@@ -30,6 +31,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    justify-self: center;
+
 }
 .flex-outp{
     display: flex;
@@ -57,4 +60,79 @@ label{
     width: 100%;
     text-align: center;
 
+}
+.flexBtn{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+    #data{
+        width: 40vh;
+        height: 50vh;
+    }
+    .data{
+        width: 40vh;
+        height: 50vh;
+    }
+    .inputs{
+        zoom: 60%;
+    }
+
+}
+@media screen and (min-width: 769px) {
+    #data{
+        width: 50vh;
+        height: 60vh;
+    }
+    .data{
+        width: 50vh;
+        height: 60vh;
+    }
+    .inputs{
+        zoom: 65%;
+    }
+
+}
+@media screen and (min-width: 1024px) {
+    #data{
+        width: 50vh;
+        height: 60vh;
+    }
+    .data{
+        width: 50vh;
+        height: 60vh;
+    }
+    .inputs{
+        zoom: 70%;
+    }
+
+}
+
+@media only screen and (min-width: 1170px){
+    #data{
+        width: 60vh;
+        height: 70vh;
+    }
+    .data{
+        width: 60vh;
+        height: 70vh;
+    }
+    .inputs{
+        zoom: 80%;
+    }
+}
+
+@media only screen and (min-width: 1325px){
+    #data{
+        width: 65vh;
+        height: 60vh;
+    }
+    .data{
+        width: 65vh;
+        height: 60vh;
+    }
+    .inputs{
+        zoom: 100%;
+    }
 }
