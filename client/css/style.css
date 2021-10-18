@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.home{
+    margin-top: 50px;
+}
 #data{
     width: 70vh;
     height: 60vh;
@@ -16,6 +18,8 @@
 .label{
     width: 30vh;
     line-height: 0%;
+    margin: auto;
+    font-size: 22px;
 }
 
 .inputs{
@@ -35,7 +39,7 @@
     margin-bottom: 50px;
 }
 .logo{
-    width: 30%;
+    width: 15%;
     height: auto;
     margin: auto;
 }
@@ -46,6 +50,8 @@ img{
 h2{
     width: 100%;
     text-align: center;
+    font-size: 22px;
+
 }
 label{
     width: 100%;

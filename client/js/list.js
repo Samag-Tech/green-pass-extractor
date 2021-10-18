@@ -17,7 +17,6 @@ $(document).ready(function(){
                 list.push(line);
             }
         });
-        console.log(list);
 
         listTotal = list;
 
@@ -33,7 +32,6 @@ $(document).ready(function(){
                 /* mostra il contenuto della lista al centro */
                 $('#data').removeClass('alert-danger');
 
-                console.log(response);
                     if (response.length > 0) {
                         /* disabilita il pulsante per estrarre la lista */
                         $('#show').prop('disabled' , true);

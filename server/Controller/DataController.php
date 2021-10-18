@@ -39,6 +39,11 @@ class DataController {
         $purifiedArr = [];
 
         foreach ($listArray as $key => $value) {
+            $trimmedArr[] = trim($value);
+        }
+
+        foreach ($trimmedArr as $key => $value) {
+
             if (!empty($value)) {
                 array_push($purifiedArr , $value);
             }
