@@ -1,12 +1,10 @@
 $(document).ready(function(){
-    let listValue;
-    let listTotal;
+
         /* download file csv */
         $('#download').on('click', function () {
-            if (listValue !== listTotal) {
-                download(listValue);
-            }
+            download(listValue);
         })
+
 
     $('#show').on('click', function(e) {
         e.preventDefault();
@@ -57,7 +55,6 @@ $(document).ready(function(){
                 }
         });
     });
-
 });
 
 /* funzione per generare dinamicamente la lista ricevuta nell'html da mostrare all'utente */
@@ -84,35 +81,38 @@ function generateList(elements) {
 
 
 function download(resp) {
-    $.ajax({
-        type: "POST",
-        data: JSON.stringify(resp),
-        url: '/server/Api/generator.php',
-        success: function (response) {
-            console.log(response);
-                if (response !== '') {
-                    /* da la possibilita di ricreare la lista */
-                    $('#show').prop('disabled' , false);
-                    /* download del file csv */
-                    $('#data').removeClass('alert-danger');
-                    var binaryData = [];
-                    binaryData.push(response);
-                    const url = window.URL.createObjectURL(new Blob(binaryData, {type: "text/csv"}))
-                    const a = document.createElement('a');
+    for (let index = 0; index < 1; index++) {
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(resp),
+            url: '/server/Api/generator.php',
+            success: function (response) {
+                console.log(response);
+                    if (response !== '') {
+                        /* da la possibilita di ricreare la lista */
+                        $('#show').prop('disabled' , false);
+                        /* download del file csv */
+                        $('#data').removeClass('alert-danger');
+                        var binaryData = [];
+                        binaryData.push(response);
+                        const url = window.URL.createObjectURL(new Blob(binaryData, {type: "text/csv"}))
+                        const a = document.createElement('a');
 
-                    a.style.display = 'none';
-                    a.href = url;
-                    a.download = 'lista.csv';
-                    document.body.appendChild(a);
-                    a.click();
+                        a.style.display = 'none';
+                        a.href = url;
+                        a.download = 'lista.csv';
+                        document.body.appendChild(a);
+                        a.click();
 
-            }else{
-                /* mostra all'utente un errore nel caso in cui la textarea e vuota */
-                $('#data').addClass('alert-danger');
+                }else{
+                    /* mostra all'utente un errore nel caso in cui la textarea e vuota */
+                    $('#data').addClass('alert-danger');
+                }
+            },
+            error: function (err) {
+                alert("AJAX error: " + err);
             }
-        },
-        error: function (err) {
-            alert("AJAX error: " + err);
-        }
-    });
+        });
+
+    }
 }
