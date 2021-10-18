@@ -48,6 +48,9 @@ $(document).ready(function(){
                         /* mostra un errore in caso di dati mancanti */
                         response = '';
                         $('#list').html(generateList(response));
+
+                        /* disabilita il pulsante di download */
+                        $('#download').prop('disabled' , true);
                         $('#data').addClass('alert-danger');
 
                     }
