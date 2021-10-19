@@ -169,4 +169,7 @@ a{
     .inputs{
         zoom: 80%;
     }
+    body{
+        overflow-y: hidden;
+    }
 }
