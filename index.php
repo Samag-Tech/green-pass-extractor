@@ -31,7 +31,7 @@ require_once('client/partials/header.php');
                     <div class="input-group-prepend">
                     <div class="input-group-text">%</div>
                     </div>
-                    <input type="text" class="form-control" placeholder="25" readonly >
+                    <input style="text-align: center;" type="text" class="form-control" placeholder="25" readonly >
                 </div>
             </div>
             <button class="btn btn-primary center-items" id="show">
